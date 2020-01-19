@@ -1,5 +1,7 @@
 package PrefixSums
 
+import "math"
+
 func calculatePrefixSums(A []int) []int {
 	var (
 		n = len(A)
@@ -26,4 +28,8 @@ func calculateSuffixSums(A []int) []int {
 	}
 
 	return P
+}
+
+func countTotalOfSliceOfSums(A []int, x int, y int) int {
+	return int(math.Abs(float64(A[y+1] - A[x])))
 }
