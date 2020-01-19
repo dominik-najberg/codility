@@ -92,3 +92,72 @@ func Test_countTotalOfSliceOfSums(t *testing.T) {
 		})
 	}
 }
+
+func Test_min(t *testing.T) {
+	tests := []struct {
+		vs   []int
+		want int
+	}{
+		{
+			[]int{10, 1, 29},
+			1,
+		},
+		{
+			[]int{100, -1, 901, -200},
+			-200,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v -> %v", tt.vs, tt.want), func(t *testing.T) {
+			if got := min(tt.vs...); got != tt.want {
+				t.Errorf("min() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_max(t *testing.T) {
+	tests := []struct {
+		vs   []int
+		want int
+	}{
+		{
+			[]int{10, 1, 29},
+			29,
+		},
+		{
+			[]int{100, -1, 901, -200},
+			901,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v -> %v", tt.vs, tt.want), func(t *testing.T) {
+			if got := max(tt.vs...); got != tt.want {
+				t.Errorf("max() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_mushrooms(t *testing.T) {
+	tests := []struct {
+		A        []int
+		startPos int
+		steps    int
+		want     int
+	}{
+		{
+			A:        []int{2, 3, 7, 5, 1, 3, 9},
+			startPos: 4,
+			steps:    6,
+			want:     25,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v, start: %v, steps: %v -> %v", tt.A, tt.startPos, tt.steps, tt.want), func(t *testing.T) {
+			if got := mushrooms(tt.A, tt.startPos, tt.steps); got != tt.want {
+				t.Errorf("mushrooms() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
