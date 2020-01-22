@@ -46,7 +46,7 @@ func mushrooms(A []int, startPos int, steps int) int {
 
 	for p := 0; p < min(steps, startPos); p++ {
 		leftPos := startPos - p
-		rightPos := min(n-1, max(startPos, startPos+steps-2*p))
+		rightPos := min(n-1, max(startPos, startPos+(steps-2*p)))
 		result = max(result, countTotalOfSliceOfSums(pref, leftPos, rightPos))
 	}
 
